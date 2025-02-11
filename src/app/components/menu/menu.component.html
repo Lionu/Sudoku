@@ -1,0 +1,44 @@
+<div class="menu-container">
+  <form class="player-input">
+    <mat-form-field appearance="outline">
+      <mat-label>Player name</mat-label>
+      <input matInput type="text" [formControl]="inputFormControl">
+    </mat-form-field>
+  </form>
+</div>
+
+<section class="game-initialisation">
+  <div>
+    Check this box if you want graphical help during the game:
+    <mat-checkbox class="select-suggestions" [(ngModel)]="suggestionsChecked">
+      Show suggestions (prevent recording the score)
+    </mat-checkbox>
+  </div>
+  <div class="launch-game">
+    <div>
+      Click on the following button to launch a game with a random grid:
+    </div>
+    <div class="select-levels">
+      <div class="button_board">
+        <button class="button_game" (click) = "clickOnBoard()" mat-raised-button routerLinkActive="active" ariaCurrentWhenActive="page">
+          Generate random board
+        </button>
+      </div>
+      <mat-form-field class="form-levels" appearance="outline">
+        <mat-select class="select_levels" [(value)]="level">
+          <mat-option *ngFor="let l of levelsChoice()" [value]="l">
+            {{l}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="replay-menu">
+    Or click on a previously played grid to launch the game with:
+    <div>
+      <img class="img_replay" ngSrc="assets/img/boardgame.png" width="227" height="228" alt="a random sudoku grid" priority>
+    </div>
+  </div>
+
+</section>
