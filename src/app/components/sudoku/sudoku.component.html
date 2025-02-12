@@ -1,1 +1,10 @@
-<p>sudoku works!</p>
+<main>
+  <ng-container>
+    <div *ngFor="let x of [0,1,2,3,4,5,6,7,8]" class="board">
+      <div *ngFor="let y of [0,1,2,3,4,5,6,7,8]"  class="tile">
+        <app-tile class="apptile" [x]="x" [y] = "y" >
+        </app-tile>
+      </div>
+    </div>
+  </ng-container>
+</main>
